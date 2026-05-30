@@ -1,0 +1,8 @@
+METRICAS DE VERIFICACION
+
+Casos posibles: 8
+Casos evaluados: 8
+Casos correctos: 8
+Casos fallidos: 0
+Cobertura logica: 100 %
+Cumplimiento de especificacion: 100 %

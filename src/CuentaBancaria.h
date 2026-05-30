@@ -1,5 +1,5 @@
-#ifndef CUENTA_BANCARIA_H
-#define CUENTA_BANCARIA_H
+#ifndef CUENTABANCARIA_H
+#define CUENTABANCARIA_H
 
 #include <string>
 using namespace std;
@@ -23,6 +23,9 @@ public:
     bool depositar(double monto);
     bool retirar(double monto);
     bool transferir(CuentaBancaria& destino, double monto);
+
+    double obtenerSaldo();
+    string obtenerTitular();
 
     void mostrar();
 };

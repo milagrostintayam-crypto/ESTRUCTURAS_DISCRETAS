@@ -1,0 +1,23 @@
+# Ejecutables generados por compilación
+
+*.exe
+*.out
+
+# Archivos objeto
+
+*.o
+*.obj
+
+# Configuración local de Visual Studio Code
+
+.vscode/
+
+# Archivos temporales
+
+*.tmp
+*.log
+
+# Carpetas de compilación
+
+build/
+bin/

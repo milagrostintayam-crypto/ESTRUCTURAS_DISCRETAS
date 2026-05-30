@@ -1,9 +1,24 @@
-#ifndef SISTEMA_BANCARIO_H
-#define SISTEMA_BANCARIO_H
+#ifndef SISTEMABANCARIO_H
+#define SISTEMABANCARIO_H
+
+#include "CuentaBancaria.h"
 
 class SistemaBancario {
+private:
+    CuentaBancaria cuenta1;
+    CuentaBancaria cuenta2;
+    bool sesionIniciada;
+
 public:
-    void tablaRetiro();
+    SistemaBancario();
+
+    void menu();
+    void iniciarSesion();
+    void depositar();
+    void retirar();
+    void transferir();
+    void verSaldos();
+    void ejecutarVerificacionFormal();
 };
 
 #endif

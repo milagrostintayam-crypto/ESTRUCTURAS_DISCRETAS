@@ -4,7 +4,6 @@
 
 using namespace std;
 
-//Constructor e implementacion de los metodos de la clase CuentaBancaria
 CuentaBancaria::CuentaBancaria(string titular, int pin, double saldo, bool activa) {
     this->titular = titular;
     this->pin = pin;
@@ -34,6 +33,10 @@ bool CuentaBancaria::iniciarSesion(int pinIngresado) {
     bool L = P && A;
 
     cout << "\n[LOGIN]\n";
+    cout << "P: " << VerificadorLogico::v(P)
+         << " | A: " << VerificadorLogico::v(A)
+         << " | L: " << VerificadorLogico::v(L) << endl;
+
     cout << "(P and A) entonces L = "
          << VerificadorLogico::v(VerificadorLogico::implica(P && A, L))
          << endl;
@@ -52,6 +55,10 @@ bool CuentaBancaria::depositar(double monto) {
     }
 
     cout << "\n[DEPOSITO]\n";
+    cout << "A: " << VerificadorLogico::v(A)
+         << " | M: " << VerificadorLogico::v(M)
+         << " | D: " << VerificadorLogico::v(D) << endl;
+
     cout << "(A and M) entonces D = "
          << VerificadorLogico::v(VerificadorLogico::implica(A && M, D))
          << endl;
@@ -65,18 +72,9 @@ bool CuentaBancaria::retirar(double monto) {
     bool F = fondosSuficientes(monto);
     bool R = false;
 
-    double saldoInicial = saldo;
-
     if (A && M && F) {
         saldo -= monto;
         R = true;
-    }
-
-    bool formula = VerificadorLogico::implica(A && M && F, R);
-    bool postcondicion = true;
-
-    if (R) {
-        postcondicion = (saldo == saldoInicial - monto) && (saldo >= 0);
     }
 
     cout << "\n[RETIRO]\n";
@@ -86,10 +84,8 @@ bool CuentaBancaria::retirar(double monto) {
          << " | R: " << VerificadorLogico::v(R) << endl;
 
     cout << "(A and M and F) entonces R = "
-         << VerificadorLogico::v(formula) << endl;
-
-    cout << "Postcondicion saldo valido = "
-         << VerificadorLogico::v(postcondicion) << endl;
+         << VerificadorLogico::v(VerificadorLogico::implica(A && M && F, R))
+         << endl;
 
     return R;
 }
@@ -121,6 +117,14 @@ bool CuentaBancaria::transferir(CuentaBancaria& destino, double monto) {
          << endl;
 
     return T;
+}
+
+double CuentaBancaria::obtenerSaldo() {
+    return saldo;
+}
+
+string CuentaBancaria::obtenerTitular() {
+    return titular;
 }
 
 void CuentaBancaria::mostrar() {

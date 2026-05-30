@@ -1,0 +1,11 @@
+TABLA DE VERDAD - REGLA DE RETIRO
+
+Caso | A | M | F | A∧M∧F | R esperado | R obtenido | Cumple
+1    | F | F | F |   F   |     F      |     F      | Sí
+2    | F | F | V |   F   |     F      |     F      | Sí
+3    | F | V | F |   F   |     F      |     F      | Sí
+4    | F | V | V |   F   |     F      |     F      | Sí
+5    | V | F | F |   F   |     F      |     F      | Sí
+6    | V | F | V |   F   |     F      |     F      | Sí
+7    | V | V | F |   F   |     F      |     F      | Sí
+8    | V | V | V |   V   |     V      |     V      | Sí
